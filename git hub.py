@@ -1,5 +1,5 @@
 #2
-n=[3,1,4,2]
+n=[5,8,6,11,7]
 result=[]
 for i in range(len(n)):
     count_small=0
