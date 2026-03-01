@@ -22,8 +22,13 @@ def analyze_text(text):
 
     return(vowel_count,result_words.strip())
 print(analyze_text("your level is high"))
-#-------------------------------------
 
+print("-------------------------------------")
 #2
-
+process = lambda s : " ".join(
+    w[::-1]
+    for w in s.split()
+    if w.isalpha() and len(w) % 2 == 0
+)
+print(process("abc as12 cd34 asdf"))
 
