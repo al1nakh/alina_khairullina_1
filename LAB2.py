@@ -165,7 +165,7 @@ suspicious_users = set()
 total_suspicious_amount = 0
 
 
-with open(input_file, newline='') as csvfile:
+with open(input_file, newline='',encoding="utf-8") as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         user = row['user_id']
@@ -185,13 +185,13 @@ for user, count in transaction_count.items():
     if count > 3:
         suspicious_users.add(user)
 
-with open(txt_report, "w") as f:
+with open(txt_report, "w",encoding="utf-8") as f:
     f.write(f"Подозрительных транзакций: {len(suspicious_transactions)}\n")
     f.write(f"Подозрительных пользователей: {len(suspicious_users)}\n")
     f.write(f"Список пользователей: {', '.join(suspicious_users)}\n")
     f.write(f"Общая сумма подозрительных операций: {total_suspicious_amount}\n")
 
-with open(json_report, "w") as f:
+with open(json_report, "w",encoding="utf-8") as f:
     json.dump(list(suspicious_users), f, ensure_ascii=False, indent=4)
 
 
